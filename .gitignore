@@ -1,5 +1,5 @@
 out
 .DS_Store
-startjava.iml
+/*.iml
 .idea
-.xml
+/*.xml
