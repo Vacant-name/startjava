@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.array;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class arrayMaxElementMain {
+public class ArrayMaxElementMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
