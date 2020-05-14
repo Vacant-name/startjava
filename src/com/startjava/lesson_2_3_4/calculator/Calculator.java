@@ -1,47 +1,43 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-	private int firstNum;
-	private String sign;
-	private int secondNum;
+    private String strExp;
+    private String[] divStrExp;
+    private String delimiter = " ";
 
-	void setFirstNum(int firstNum) {
-		this.firstNum = firstNum;
-	}
+    public void setStrExp(String strExp) {
+        this.strExp = strExp;
+    }
 
-	void setSign(String sign) {
-		this.sign = sign;
-	}
+    private int firstNum;
+    private int secNum;
+    private String sign;
 
-	void setSecondNum(int secondNum) {
-		this.secondNum = secondNum;
-	}
+    void calculate() {
+        divStrExp = strExp.split(delimiter);
+        firstNum = Integer.parseInt(divStrExp[0]);
+        secNum = Integer.parseInt(divStrExp[2]);
+        sign = divStrExp[1];
 
-	void calculate() {
-
-		switch(sign) {
-			case "+" :
-				System.out.println("Answer = " + (firstNum + secondNum));
-				break;
-			case "-" :
-				System.out.println("Answer = " + (firstNum - secondNum));
-				break;
-			case "*" :
-				System.out.println("Answer = " + (firstNum * secondNum));
-				break;
-			case "/" :
-				System.out.println("Answer = " + (firstNum / secondNum));
-				break;
-			case "%" :
-				System.out.println("Answer = " + (firstNum % secondNum));
-				break;
-			case "^" :
-				int result = 1;
-				for(int i = 1; i <= secondNum; i++) {
-					result *= firstNum;
-				}
-				System.out.println("Answer = " + result);
-				break;
-		}
-	}
+        switch(sign) {
+            case "+" :
+                System.out.println("Answer = " + Math.addExact(firstNum,secNum));
+                break;
+            case "-" :
+                System.out.println("Answer = " + Math.subtractExact(firstNum,secNum));
+                break;
+            case "*" :
+                System.out.println("Answer = " + Math.multiplyExact(firstNum,secNum));
+                break;
+            case "/" :
+                System.out.println("Answer = " + Math.floorDiv(firstNum,secNum));
+                break;
+            case "%" :
+                System.out.println("Answer = " + Math.IEEEremainder(firstNum,secNum));
+                break;
+            case "^" :
+                System.out.println("Answer = " + Math.pow(firstNum,secNum));
+                break;
+        }
+    }
 }

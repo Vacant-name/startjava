@@ -13,18 +13,18 @@ public class ArrayMain {
         for (float number : numbers1) {
             System.out.print(number + " ");
         }
-
-        for(int i = 0; i < numbers1.length; i++) {
-            numbers[i] = i * 10;
-        }
-
-        for (float number : numbers1) {
-            System.out.print(number + " ");
-        }
-        String[] text = new String[3];
-
-        for(String string : text) {
-            System.out.println(string);
-        }
+//
+//        for(int i = 0; i < numbers1.length; i++) {
+//            numbers[i] = i * 10;
+//        }
+//
+//        for (float number : numbers1) {
+//            System.out.print(number + " ");
+//        }
+//        String[] text = new String[3];
+//
+//        for(String string : text) {
+//            System.out.println(string);
+//        }
     }
 }
