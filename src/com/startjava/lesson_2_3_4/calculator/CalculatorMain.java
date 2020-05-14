@@ -9,7 +9,7 @@ public class CalculatorMain {
         Scanner scan = new Scanner(System.in);
         do {
             System.out.println("Enter the math expression ");
-            calc.setStrExp(scan.nextLine());
+            calc.setSrcMathExpression(scan.nextLine());
 
             calc.calculate();
             do {

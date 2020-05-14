@@ -1,23 +1,18 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private String strExp;
-    private String[] divStrExp;
-    private String delimiter = " ";
+    private String srcMathExpression;
+    private String[] splitMathExpression;
 
-    public void setStrExp(String strExp) {
-        this.strExp = strExp;
+    public void setSrcMathExpression(String srcMathExpression) {
+        this.srcMathExpression = srcMathExpression;
     }
 
-    private int firstNum;
-    private int secNum;
-    private String sign;
-
     void calculate() {
-        divStrExp = strExp.split(delimiter);
-        firstNum = Integer.parseInt(divStrExp[0]);
-        secNum = Integer.parseInt(divStrExp[2]);
-        sign = divStrExp[1];
+        splitMathExpression = srcMathExpression.split(" ");
+        int firstNum = Integer.parseInt(splitMathExpression[0]);
+        int secNum = Integer.parseInt(splitMathExpression[2]);
+        String sign = splitMathExpression[1];
 
         switch(sign) {
             case "+" :
