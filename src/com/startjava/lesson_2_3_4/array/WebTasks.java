@@ -31,11 +31,11 @@ public class WebTasks {
 //        }
 //        System.out.println(sum);
 
-        int[] array = {1, 2, 3, -3, 4, 5, 6};
+        int[] array = {1, 8, 3, -3, 4, 5, 6};
         int max = array[0];
-        for(int i = 0; i < array.length - 1; i++) {
-            if(array[i + 1] > max)
-                max = array[i + 1];
+        for(int i = 0; i < array.length - 2; i = i + 2) {
+            if(array[i + 2] > max)
+                max = array[i + 2];
         }
         System.out.print(max);
     }
