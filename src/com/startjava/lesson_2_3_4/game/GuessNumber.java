@@ -34,7 +34,8 @@ public class GuessNumber {
 				System.out.println("The first player inputing his number... ");
 				playerOne.setNumber(sc.nextInt());
 				System.out.println("The first player thinking this number  " + playerOne.getNumber());
-				playerOne.arrayNumbers[i] = playerOne.getNumber();
+				playerOne.setJ(i);
+				playerOne.setArrayNumbers(playerOne.getNumber());
 				attempts1++;
 				if(playerOne.getNumber() == compNumber) {
 					System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + attempts1 + " try");
@@ -50,7 +51,8 @@ public class GuessNumber {
 				System.out.println("The second player inputing his number... ");
 				playerTwo.setNumber(sc.nextInt());
 				System.out.println("The second player thinking this number  " + playerTwo.getNumber());
-				playerTwo.arrayNumbers[i] = playerTwo.getNumber();
+				playerTwo.setJ(i);
+				playerTwo.setArrayNumbers(playerTwo.getNumber());
 				attempts2++;
 				if(playerTwo.getNumber() == compNumber) {
 					System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + attempts2 + " try");
@@ -64,13 +66,13 @@ public class GuessNumber {
 				}
 			}
 			if(!oneMoreTime) {
-				int[] screenArr1 = Arrays.copyOf(playerOne.arrayNumbers,attempts1);
+				int[] screenArr1 = Arrays.copyOf(playerOne.getArrayNumbers(),attempts1);
 				for(int i = 0; i < screenArr1.length; i++) {
 					checkArr1[i] = i;
 					System.out.print(screenArr1[i] + " ");
 				}
 				System.out.println();
-				int[] screenArr2 = Arrays.copyOf(playerTwo.arrayNumbers,attempts2);
+				int[] screenArr2 = Arrays.copyOf(playerTwo.getArrayNumbers(),attempts2);
 				for(int i = 0; i < screenArr2.length; i++) {
 					checkArr2[i] = i;
 					System.out.print(screenArr2[i] + " ");
