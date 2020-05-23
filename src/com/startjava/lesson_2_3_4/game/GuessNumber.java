@@ -65,23 +65,21 @@ public class GuessNumber {
 			}
 			if(!oneMoreTime) {
 				playerOne.setScreenArr(Arrays.copyOf(playerOne.getEnteredNums(),playerOne.getAttempt()));
-				for(int i = 0; i < playerOne.getScreenArr().length; i++) {
-					playerOne.setCheckNum(i);
-					playerOne.setCheckArr(playerOne.getNumber());
-					System.out.print(playerOne.getCheckNum() + " ");
+				for(int i = 0; i <= playerOne.getAttempt(); i++) {
+					playerOne.setScreen(i);
+					System.out.print(playerOne.getScreenArr() + " ");
 				}
 				System.out.println();
 				playerTwo.setScreenArr(Arrays.copyOf(playerTwo.getEnteredNums(),playerTwo.getAttempt()));
-				for(int i = 0; i < playerTwo.getScreenArr().length; i++) {
-					playerTwo.setCheckNum(i);
-					playerTwo.setCheckArr(playerTwo.getNumber());
-					System.out.print(playerTwo.getCheckNum() + " ");
+				for(int i = 0; i <= playerTwo.getAttempt(); i++) {
+					playerTwo.setScreen(i);
+					System.out.print(playerTwo.getScreenArr() + " ");
 				}
 				System.out.println();
 				break;
 			}
-			Arrays.fill(playerOne.getCheckArr(), 0);
-			Arrays.fill(playerTwo.getCheckArr(), 0);
+			Arrays.fill(playerOne.getScreenArr(), 0);
+			Arrays.fill(playerTwo.getScreenArr(), 0);
 			System.out.println("One more time");
 		} //while
 	}

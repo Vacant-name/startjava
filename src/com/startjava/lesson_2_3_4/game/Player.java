@@ -5,10 +5,8 @@ public class Player {
 	private int number;
 	private int[] enteredNums = new int[10];
 	private int attempt;
-	private int[] checkArr = new int[10];
-	private int checkNum;
 	private int[] screenArr = new int[10];
-	private int  screenNum;
+	private int screen;
 
 	public Player(String name) {
 		this.name = name;
@@ -42,22 +40,6 @@ public class Player {
 		return attempt;
 	}
 
-	public void setCheckArr(int num) {
-		checkArr[checkNum] = num;
-	}
-
-	public int[] getCheckArr() {
-		return checkArr;
-	}
-
-	public void setCheckNum(int num) {
-		this.checkNum = num;
-	}
-
-	public int getCheckNum() {
-		return checkNum;
-	}
-
 	public void setScreenArr(int[] num) {
 		this.screenArr = num;
 	}
@@ -66,11 +48,11 @@ public class Player {
 		return screenArr;
 	}
 
-	public void setScreenNum(int screenNum) {
-		this.screenNum = screenNum;
+	public void setScreen(int num) {
+		this.screen = num;
 	}
 
-	public int getScreenNum() {
-		return screenNum;
+	public int getScreen() {
+		return screen;
 	}
 }
