@@ -7,6 +7,7 @@ public class Player {
 	private int attempt;
 	private int[] screenArr = new int[10];
 	private int screen;
+	private int[] screenArr2 = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -46,6 +47,14 @@ public class Player {
 
 	public int[] getScreenArr() {
 		return screenArr;
+	}
+
+	public void setScreenArr2(int num) {
+		this.screenArr2[num] = number;
+	}
+
+	public int[] getScreenArr2() {
+		return screenArr2;
 	}
 
 	public void setScreen(int num) {

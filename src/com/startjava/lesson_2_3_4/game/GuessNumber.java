@@ -67,13 +67,15 @@ public class GuessNumber {
 				playerOne.setScreenArr(Arrays.copyOf(playerOne.getEnteredNums(),playerOne.getAttempt()));
 				for(int i = 0; i <= playerOne.getAttempt(); i++) {
 					playerOne.setScreen(i);
-					System.out.print(playerOne.getScreenArr() + " ");
+					playerOne.setScreenArr2(playerOne.getScreen());
+					System.out.print(playerOne.getScreenArr2() + " ");
 				}
 				System.out.println();
 				playerTwo.setScreenArr(Arrays.copyOf(playerTwo.getEnteredNums(),playerTwo.getAttempt()));
 				for(int i = 0; i <= playerTwo.getAttempt(); i++) {
 					playerTwo.setScreen(i);
-					System.out.print(playerTwo.getScreenArr() + " ");
+					playerTwo.setScreenArr2(playerTwo.getScreen());
+					System.out.print(playerTwo.getScreenArr2() + " ");
 				}
 				System.out.println();
 				break;
