@@ -3,11 +3,9 @@ package com.startjava.lesson_2_3_4.game;
 public class Player {
 	private String name;
 	private int number;
-	private int[] enteredNums = new int[10];
+	private int[] enteredNum = new int[10];
 	private int attempt;
-	private int[] screenArr = new int[10];
-	private int screen;
-	private int[] screenArr2 = new int[10];
+	private int[] screen = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -17,20 +15,20 @@ public class Player {
 		return name;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setNumber(int num) {
+		this.number = num;
 	}
 
 	public int getNumber() {
 		return number;
 	}
 
-	public void setEnteredNums(int num) {
-		enteredNums[attempt] = num;
+	public void setEnteredNum(int num) {
+		enteredNum[attempt] = num;
 	}
 
-	public int[] getEnteredNums() {
-		return enteredNums;
+	public int[] getEnteredNum() {
+		return enteredNum;
 	}
 
 	public void setAttempt(int num) {
@@ -41,27 +39,11 @@ public class Player {
 		return attempt;
 	}
 
-	public void setScreenArr(int[] num) {
-		this.screenArr = num;
-	}
-
-	public int[] getScreenArr() {
-		return screenArr;
-	}
-
-	public void setScreenArr2(int num) {
-		this.screenArr2[num] = number;
-	}
-
-	public int[] getScreenArr2() {
-		return screenArr2;
-	}
-
-	public void setScreen(int num) {
+	public void setScreen(int[] num) {
 		this.screen = num;
 	}
 
-	public int getScreen() {
+	public int[] getScreen() {
 		return screen;
 	}
 }

@@ -26,16 +26,15 @@ public class GuessNumber {
 			System.out.println("You must guess the number " + compNumber);
 			boolean oneMoreTime = true;
 
-			for(int i = 0; i <= 10; i++) {
+			for(int i = 0; i < 10; i++) {
 				System.out.println("The first player inputing his number... ");
 				playerOne.setNumber(sc.nextInt());
 				System.out.println("The first player thinking this number  " + playerOne.getNumber());
 				playerOne.setAttempt(i);
-				playerOne.setEnteredNums(playerOne.getNumber());
-
+				playerOne.setEnteredNum(playerOne.getNumber());
 
 				if(playerOne.getNumber() == compNumber) {
-					System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + playerOne.getAttempt() + " try");
+					System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + (playerOne.getAttempt() + 1) + " try");
 					oneMoreTime = false;
 					break;
 				}
@@ -49,11 +48,10 @@ public class GuessNumber {
 				playerTwo.setNumber(sc.nextInt());
 				System.out.println("The second player thinking this number  " + playerTwo.getNumber());
 				playerTwo.setAttempt(i);
-				playerTwo.setEnteredNums(playerTwo.getNumber());
-
+				playerTwo.setEnteredNum(playerTwo.getNumber());
 
 				if(playerTwo.getNumber() == compNumber) {
-					System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + playerTwo.getAttempt() + " try");
+					System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + (playerTwo.getAttempt() + 1) + " try");
 					oneMoreTime = false;
 					break;
 				}
@@ -62,27 +60,17 @@ public class GuessNumber {
 					oneMoreTime = true;
 					break;
 				}
-			}
+			} // for
 			if(!oneMoreTime) {
-				playerOne.setScreenArr(Arrays.copyOf(playerOne.getEnteredNums(),playerOne.getAttempt()));
-				for(int i = 0; i <= playerOne.getAttempt(); i++) {
-					playerOne.setScreen(i);
-					playerOne.setScreenArr2(playerOne.getScreen());
-					System.out.print(playerOne.getScreenArr2() + " ");
-				}
-				System.out.println();
-				playerTwo.setScreenArr(Arrays.copyOf(playerTwo.getEnteredNums(),playerTwo.getAttempt()));
-				for(int i = 0; i <= playerTwo.getAttempt(); i++) {
-					playerTwo.setScreen(i);
-					playerTwo.setScreenArr2(playerTwo.getScreen());
-					System.out.print(playerTwo.getScreenArr2() + " ");
-				}
-				System.out.println();
+				playerOne.setScreen(Arrays.copyOf(playerOne.getEnteredNum(), playerOne.getAttempt() + 1));
+				playerTwo.setScreen(Arrays.copyOf(playerTwo.getEnteredNum(), playerTwo.getAttempt() + 1));
+				System.out.println(Arrays.toString(playerOne.getScreen()));
+				System.out.println(Arrays.toString(playerTwo.getScreen()));
 				break;
 			}
-			Arrays.fill(playerOne.getScreenArr(), 0);
-			Arrays.fill(playerTwo.getScreenArr(), 0);
+			Arrays.fill(playerOne.getScreen(), 0);
+			Arrays.fill(playerTwo.getScreen(), 0);
 			System.out.println("One more time");
-		} //while
+		} // while
 	}
 }
