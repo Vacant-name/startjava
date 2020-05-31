@@ -16,6 +16,42 @@ public class GuessNumber {
 		this.playerTwo = player2;
 	}
 
+	void intputNumber(Player playerOne) {
+		System.out.println(playerOne.getName() + " inputing his number... ");
+		playerOne.setNumber(sc.nextInt());
+		System.out.println(playerOne.getName() + " thinking this number  " + playerOne.getNumber());
+		playerOne.setAttempt(i);
+		playerOne.setEnteredNum(playerOne.getNumber());
+	}
+
+	void intputNumber(Player playerTwo) {
+		System.out.println(playerTwo.getName() + " inputing his number... ");
+		playerTwo.setNumber(sc.nextInt());
+		System.out.println(playerTwo.getName() + " thinking this number  " + playerTwo.getNumber());
+		playerTwo.setAttempt(i);
+		playerTwo.setEnteredNum(playerTwo.getNumber());
+	}
+
+	void falseThis(Player playerOne) {
+		System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + (playerOne.getAttempt() + 1) + " try");
+		oneMoreTime = false;
+	}
+
+	void trueThis(Player playerOne) {
+		System.out.println(playerOne.getName() + " doesn't have the attempts");
+		oneMoreTime = true;
+	}
+
+	void falseThis(Player playerTwo) {
+		System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + (playerTwo.getAttempt() + 1) + " try");
+		oneMoreTime = false;
+	}
+
+	void trueThis(Player playerTwo) {
+		System.out.println(playerTwo.getName() + " doesn't have the attempts");
+		oneMoreTime = true;
+	}
+
 	void play() {
 		Random random = new Random();
 
@@ -27,49 +63,33 @@ public class GuessNumber {
 			boolean oneMoreTime = true;
 
 			for(int i = 0; i < 10; i++) {
-				System.out.println("The first player inputing his number... ");
-				playerOne.setNumber(sc.nextInt());
-				System.out.println("The first player thinking this number  " + playerOne.getNumber());
-				playerOne.setAttempt(i);
-				playerOne.setEnteredNum(playerOne.getNumber());
-
+				void intputNumber(Player playerOne);
 				if(playerOne.getNumber() == compNumber) {
-					System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + (playerOne.getAttempt() + 1) + " try");
-					oneMoreTime = false;
-					break;
+					void falseThis(Player playerOne);
 				}
 				if (playerOne.getAttempt() == 10) {
-					System.out.println(playerOne.getName() + " doesn't have the attempts");
-					oneMoreTime = true;
-					break;
+					void trueThis(Player playerOne);
 				}
 
-				System.out.println("The second player inputing his number... ");
-				playerTwo.setNumber(sc.nextInt());
-				System.out.println("The second player thinking this number  " + playerTwo.getNumber());
-				playerTwo.setAttempt(i);
-				playerTwo.setEnteredNum(playerTwo.getNumber());
-
+				void intputNumber(Player playerTwo);
 				if(playerTwo.getNumber() == compNumber) {
-					System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + (playerTwo.getAttempt() + 1) + " try");
-					oneMoreTime = false;
-					break;
+					void falseThis(Player playerTwo)
 				}
 				if(playerTwo.getAttempt() == 10) {
-					System.out.println(playerTwo.getName() + " doesn't have the attempts");
-					oneMoreTime = true;
-					break;
+					void trueThis(Player playerTwo);
 				}
 			} // for
 			if(!oneMoreTime) {
-				playerOne.setScreen(Arrays.copyOf(playerOne.getEnteredNum(), playerOne.getAttempt() + 1));
-				playerTwo.setScreen(Arrays.copyOf(playerTwo.getEnteredNum(), playerTwo.getAttempt() + 1));
-				System.out.println(Arrays.toString(playerOne.getScreen()));
-				System.out.println(Arrays.toString(playerTwo.getScreen()));
+				int screenOne[] = new int[10];
+				int screenTwo[] = new int[10];
+				screenOne = (Arrays.copyOf(playerOne.getEnteredNum(), playerOne.getAttempt() + 1));
+				screenTwo = (Arrays.copyOf(playerTwo.getEnteredNum(), playerTwo.getAttempt() + 1));
+				System.out.println(Arrays.toString(playerOne.getEnteredNum()));
+				System.out.println(Arrays.toString(playerTwo.getEnteredNum()));
 				break;
 			}
-			Arrays.fill(playerOne.getScreen(), 0);
-			Arrays.fill(playerTwo.getScreen(), 0);
+			Arrays.fill(playerOne.getEnteredNum(), 0);
+			Arrays.fill(playerTwo.getEnteredNum(), 0);
 			System.out.println("One more time");
 		} // while
 	}

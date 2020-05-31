@@ -5,7 +5,6 @@ public class Player {
 	private int number;
 	private int[] enteredNum = new int[10];
 	private int attempt;
-	private int[] screen = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -37,13 +36,5 @@ public class Player {
 
 	public int getAttempt() {
 		return attempt;
-	}
-
-	public void setScreen(int[] num) {
-		this.screen = num;
-	}
-
-	public int[] getScreen() {
-		return screen;
 	}
 }
