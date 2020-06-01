@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.game;
 public class Player {
 	private String name;
 	private int number;
-	private int[] enteredNum = new int[10];
+	private int[] enteredNums = new int[10];
 	private int attempt;
 
 	public Player(String name) {
@@ -14,24 +14,24 @@ public class Player {
 		return name;
 	}
 
-	public void setNumber(int num) {
-		this.number = num;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public int getNumber() {
 		return number;
 	}
 
-	public void setEnteredNum(int num) {
-		enteredNum[attempt] = num;
+	public void setEnteredNums(int num) {
+		enteredNums[attempt] = num;
 	}
 
-	public int[] getEnteredNum() {
-		return enteredNum;
+	public int[] getEnteredNums() {
+		return enteredNums;
 	}
 
-	public void setAttempt(int num) {
-		this.attempt = num;
+	public void setAttempt(int attempt) {
+		this.attempt = attempt;
 	}
 
 	public int getAttempt() {
