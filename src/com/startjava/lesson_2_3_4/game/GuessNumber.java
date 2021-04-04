@@ -11,66 +11,74 @@ public class GuessNumber {
 	private Player playerOne;
 	private Player playerTwo;
 
-	GuessNumber(Player player1, Player player2) {
+	GuessNumber(Player player1, Player player2) { // этот метод принимает параметры из тестового класса
 		this.playerOne = player1;
 		this.playerTwo = player2;
 	}
 
-	void intputNumber(Player playerOne, Player playerTwo) {
-		System.out.println(playerOne.getName() + " inputing his number... ");
+	void intputNumberOne(Player playerOne) { // 11 запуск метода ввода числа первым игроком
+		System.out.println(playerOne.getName() + " input your number... ");
 		playerOne.setNumber(sc.nextInt());
-		System.out.println(playerOne.getName() + " thinking this number  " + playerOne.getNumber());
-		playerOne.setAttempt(i);
-		playerOne.setEnteredNums(playerOne.getNumber());
+		System.out.println(playerOne.getName() + " is thinking number  " + playerOne.getNumber());
+	}
 
-		System.out.println(playerTwo.getName() + " inputing his number... ");
+	void intputNumberTwo(Player playerTwo) {
+		System.out.println(playerTwo.getName() + " input your number... ");
 		playerTwo.setNumber(sc.nextInt());
-		System.out.println(playerTwo.getName() + " thinking this number  " + playerTwo.getNumber());
-		playerTwo.setAttempt(i);
-		playerTwo.setEnteredNums(playerTwo.getNumber());
+		System.out.println(playerTwo.getName() + "is thinking number  " + playerTwo.getNumber());
 	}
 	private int compNumber;
 	private boolean oneMoreTime;
 
-	void falseThis(Player playerOne, Player playerTwo) {
-		System.out.println("Player " + playerOne.getName() + " guessed the number " + compNumber + " on the " + (playerOne.getAttempt() + 1) + " try");
-		oneMoreTime = false;
-		System.out.println("Player " + playerTwo.getName() + " guessed the number " + compNumber + " on the " + (playerTwo.getAttempt() + 1) + " try");
+	void falseThisOne(Player playerOne) {
+		System.out.println("Player " + playerOne.getName() + " guessed number " + compNumber + " on the " + (playerOne.getAttempt() + 1) + " time");
 		oneMoreTime = false;
 	}
 
-	void trueThis(Player playerOne, Player playerTwo) {
-		System.out.println(playerOne.getName() + " doesn't have the attempts");
-		oneMoreTime = true;
-		System.out.println(playerTwo.getName() + " doesn't have the attempts");
+	void falseThisTwo(Player playerTwo) {
+		System.out.println("Player " + playerTwo.getName() + " guessed number " + compNumber + " on the " + (playerTwo.getAttempt() + 1) + " time");
+		oneMoreTime = false;
+	}
+
+	void trueThisOne(Player playerOne) {
+		System.out.println(playerOne.getName() + "You aren't have attempts");
 		oneMoreTime = true;
 	}
 
-	void play() {
-		Random random = new Random();
+	void trueThisTwo(Player playerTwo) {
+		System.out.println(playerTwo.getName() + " You aren't have attempts");
+		oneMoreTime = true;
+	}
 
-		compNumber = random.nextInt(100) + 1;
+	void play() { // 5 метод запускается
+		Random random = new Random(); // 6 создаем экз класса Random
 
-		while(true) {
-			System.out.println("You have 10 attempts");
-			System.out.println("You must guess the number " + compNumber);
+		compNumber = random.nextInt(100) + 1; // 7 генерируем число от 0 до 100
+
+		while(true) {  // 8 цикл проверки кол-ва попыток и перехода хода к другому игроку
+			System.out.println("You are have 10 attempts");
+			System.out.println("You need to guess number " + compNumber);
 			oneMoreTime = true;
 
-			for(int i = 0; i < 10; i++) {
-				intputNumber(Player playerOne);
+			for(int i = 0; i < 10; i++) { // 9 цикл кол-ва попыток
+				intputNumberOne(playerOne); // 10 вызываем метод ввода числа первым игроком
+				playerOne.setAttempt(i);
+				playerOne.setEnteredNums(playerOne.getNumber());
 				if(playerOne.getNumber() == compNumber) {
-					falseThis(Player playerOne);
+					falseThisOne(playerOne);
 				}
 				if (playerOne.getAttempt() == 10) {
-					trueThis(Player playerOne);
+					trueThisOne(playerOne);
 				}
 
-				intputNumber(Player playerTwo);
+				intputNumberTwo(playerTwo);
+				playerTwo.setAttempt(i);
+				playerTwo.setEnteredNums(playerTwo.getNumber());
 				if(playerTwo.getNumber() == compNumber) {
-					falseThis(Player playerTwo)
+					falseThisTwo(playerTwo);
 				}
 				if(playerTwo.getAttempt() == 10) {
-					trueThis(Player playerTwo);
+					trueThisTwo(playerTwo);
 				}
 			} // for
 			if(!oneMoreTime) {

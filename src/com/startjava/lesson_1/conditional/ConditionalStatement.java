@@ -17,9 +17,9 @@ public class ConditionalStatement {
 
 		float height = 1.75f;
 		if(height < 1.80) {
-			System.out.println("I am low men"); 
+			System.out.println("I am low man");
 		} else {
-			System.out.println("I am High men");
+			System.out.println("I am High man");
 		}
 
 		char firstNameLatter = 'N';
